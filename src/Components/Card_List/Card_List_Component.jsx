@@ -1,34 +1,34 @@
+import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { addCard } from './../../redux/actions/card';
+import Accordion from './../Accordion/Accordion_Component';
+
 const CardListComponent = () => {
-    const Cards =[
-        {
-            name: "Ancestor's Chosen",
-            imageUrl: "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=130550&type=card",
-        },
-        {
-            name: "Angel of Mercy",
-            imageUrl: "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=129465&type=card",
-        },
-        {
-            name: "Aven Cloudchaser",
-            imageUrl: "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=129470&type=card",
-        },
-        {
-            name: "Ballista Squad",
-            imageUrl: "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=129477&type=card",
+    const [cards, setCards] = useState();
+    const fetchApi = async () => {
+        const apiUrl = 'https://api.magicthegathering.io/v1/cards?pageSize=50&contains=imageUrl';
+        const res = await fetch(apiUrl);
+        const response = await res.json();
+        setCards(response);
+    }
+    useEffect(() =>{
+        fetchApi();
+    }, []);
+    const dispatch = useDispatch();
+    // console.log(cards);
+    const cardList = !cards ? 'Loading Cards' : cards.cards.map((card, index) => {
+        const onClickAdd = () => {
+            dispatch(addCard(card.name, card.imageUrl));   
         }
-    ];
-    const CardsList = Cards.map((card, index) => {
         return (
             <li key={index}>
-                <h3>{card.name}</h3>
-                <figure>
-                    <img src={card.imageUrl} alt={card.name} title={card.name}/>
-                </figure>
+                <Accordion title={card.name} description={card.originalText} imgUrl={card.imageUrl} type={card.type} rarity={card.rarity} power={card.power} toughness={card.toughness}/>
+                <button className="button-add" onClick={onClickAdd}>Add to pack</button>
             </li>
         );
     });
     return (
-        <ul className="list-wrapper">{CardsList}</ul>
+        <ul className="add-list-wrapper">{cardList}</ul>
     );
 }
 export default CardListComponent;

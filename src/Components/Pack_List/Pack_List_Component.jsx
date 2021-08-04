@@ -2,15 +2,15 @@
 import { useSelector } from "react-redux";
 
 const PackListComponent = () => {
-    const pack = useSelector((state) => state);
+    const pack = useSelector((state) => state.cards);
     return (
         <ul className="deck-wrapper">
-            {pack.cards.map((card, index) =>(
+            {pack.map((card, index) =>(
                 <li key={index}>
-                    <h3>{card.name}</h3>
-                    <figure>
+                    <figure className="deck-img">
                         <img src={ card.imgUrl } alt={ card.name } title={ card.name }/>
                     </figure>
+                    <h3>{card.name}</h3>
                 </li>
             ))}
         </ul>

@@ -1,0 +1,27 @@
+.add-list-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    li {
+        margin: 10px 0;
+        display: flex;
+        align-items: flex-start;
+        flex-direction: row;
+        .button-add {
+            font-family: $site-font;
+            font-size: 10px;
+            font-weight: $font-bold;
+            text-transform: uppercase;
+            background-color: $blue-color;
+            cursor: pointer;
+            border: 0;
+            border-radius: 4px;
+            color: $white;
+            padding: 5px 12px;
+            margin-left: 15px;
+            &:hover {
+                background-color: #246b8f;
+            }
+        }
+    }
+}
