@@ -14,10 +14,12 @@ const PackWrapper = () => {
             <ul className="list-wrapper">
                 {cards.map((card, index) =>(
                     <li key={index}>
-                        <h3>{card.name}</h3>
-                        <figure>
-                            <img src={ card.imgUrl } alt={ card.name } title={ card.name }/>
-                        </figure>
+                        <div className="pack-card-wrapper">
+                            <figure>
+                                <img src={ card.imgUrl } alt={ card.name } title={ card.name }/>
+                            </figure>
+                            <h3 className="pack-card-name">{card.name}</h3>
+                        </div>
                     </li>
                 ))}
             </ul>

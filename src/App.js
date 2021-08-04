@@ -45,7 +45,7 @@ function App() {
           </Switch>
         </section>
         <footer className="app-footer">
-          <p>Data provided by</p>
+          <p>This website is only for academics purposes. Not produced, endorsed, supported, or affiliated with wizards of the coast. The data is provided by:</p>
           <a
             className="App-link"
             href="https://magicthegathering.io/"

@@ -1,14 +1,11 @@
 import { ADD_PACK } from './../types';
 
-const initialState = [];
+const initialPack = [];
 
-const packReducer = (state = initialState, action) => {
+const packReducer = (state = initialPack, action) => {
     switch (action.type) {
         case ADD_PACK:
-            return [
-                ...state,
-                pack
-            ];
+            return action.pack;
         default:
             return state;
     }

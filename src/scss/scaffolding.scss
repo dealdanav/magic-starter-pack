@@ -1,8 +1,9 @@
-body {
+html, body{
     font-family: $site-font;
     margin: 0;
     padding: 0;
     color: $font-color;
+    height: 100%;
 }
 
 ul {
@@ -18,23 +19,18 @@ figure {
 
 #page-wrapper {
     width: 100%;
-    max-width: 1440px;
+    // max-width: 1440px;
     margin: 0 auto;
+    height: 100%;
+}
+.App {
+    height: 100%;
+    position: relative;
 }
 
 .app-header {
     background-color: $black;
     position: relative;
-    &::before {
-        content: "";
-        width: 100vw;
-        position: absolute;
-        background-color: $black;
-        display: block;
-        height: 100%;
-        margin-left: calc(49.4% - 50vw);
-        z-index: 1;
-    }
 }
 
 .navigation {
@@ -102,23 +98,20 @@ figure {
         left: 0;
     }
 }
-.list-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: center;
-    li {
-        margin: 10px 30px;
-    }
-}
+
 .app-footer {
-    background-color: #282c34;
-    min-height: 100vh;
+    background-color: $black;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: calc(10px + 2vmin);
     color: white;
+    font-size: 12px;
+    width: 100%;
+    p {
+        margin-bottom: 0;
+    }
+    a {
+        font-size: 12px;
+    }
 }
