@@ -1,0 +1,124 @@
+body {
+    font-family: $site-font;
+    margin: 0;
+    padding: 0;
+    color: $font-color;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+figure {
+    margin: 0;
+    padding: 0;
+}
+
+#page-wrapper {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.app-header {
+    background-color: $black;
+    position: relative;
+    &::before {
+        content: "";
+        width: 100vw;
+        position: absolute;
+        background-color: $black;
+        display: block;
+        height: 100%;
+        margin-left: calc(49.4% - 50vw);
+        z-index: 1;
+    }
+}
+
+.navigation {
+    position: relative;
+    z-index: 2;
+    ul {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    li {
+        a {
+            display: block;
+        }
+    }
+    .logo {
+        margin: 0 12px;
+        img {
+            width: 140px;
+            height: auto;
+            vertical-align: middle;
+        }
+    }
+}
+
+.App-link {
+    padding: 20px 35px;
+    font-size: 14px;
+    font-weight: $font-semibold;
+    color: $white;
+    text-transform: uppercase;
+    text-decoration: none;
+    &:hover {
+        color: $orange-color;
+    }
+}
+.active {
+    padding: 20px 35px 15px;
+    border-bottom: 5px solid $orange-color;
+    &:hover {
+        color: $white;
+    }
+}
+
+.page-title {
+    text-align: center;
+    font-size: 40px;
+    font-weight: $font-light;
+    line-height: 52px;
+}
+.block-title {
+    position: relative;
+    font-size: 24px;
+    line-height: 31px;
+    font-weight: $font-bold;
+    text-transform: uppercase;
+    padding-bottom: 12px;
+    &::after {
+        content: "";
+        width: 100px;
+        height: 5px;
+        background: $orange-color;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+}
+.list-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    li {
+        margin: 10px 30px;
+    }
+}
+.app-footer {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
